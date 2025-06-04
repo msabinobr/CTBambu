@@ -12,6 +12,9 @@ jobs:
       contents: read
       pages: write
       id-token: write
+    environment: # LINHAS ADICIONADAS PARA CORRIGIR O ERRO
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -19,13 +22,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Usamos uma versão LTS do Node.js
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
 
       - name: Build project
-        run: npm run build # Este comando usa as configs do vite.config.ts e package.json
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -33,7 +36,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # Pasta de saída do build do Vite
+          path: './dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
