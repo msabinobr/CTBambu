@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conexão Terra Bambu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0D6D41',    // Rich Green (Pantone 3425 C)
+            secondary: '#183D3D',  // Dark Teal (Pantone 5463 C)
+            accent: '#FFC107',     // Amber/Yellow (Pantone 7549 C)
+            lightBg: '#F9FAFB',   // Very Light Gray (Tailwind Stone 50)
+            darkText: '#1F2937',   // Dark Gray (Tailwind Gray 800)
+            white: '#FFFFFF',
+            black: '#000000',
+            gray: {
+              50: '#F9FAFB',
+              100: '#F3F4F6',
+              200: '#E5E7EB',
+              300: '#D1D5DB',
+              400: '#9CA3AF',
+              500: '#6B7280',
+              600: '#4B5563',
+              700: '#374151',
+              800: '#1F2937',
+              900: '#111827',
+            },
+             stone: {
+              50: '#F9FAFB', // Equivalent of lightBg for consistency with existing classes
+              100: '#F3F4F6'
+            },
+            green: { // For existing classes like bg-green-100, text-green-700
+              100: '#D1FAE5',
+              700: '#047857'
+            },
+            yellow : { // For existing classes like hover:bg-yellow-400
+                400: '#FACC15',
+                500: '#EAB308'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', "Segoe UI", 'Roboto', "Helvetica Neue", 'Arial', "Noto Sans", 'sans-serif', "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
+            serif: ['"Playfair Display"', 'Georgia', 'Cambria', "Times New Roman", 'Times', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <!-- 
+    IMPORTANT NOTE FOR GEMINI API KEY:
+    For image generation and AI chat functionalities to work, 
+    the `process.env.API_KEY` variable must be defined and accessible 
+    in the JavaScript execution environment. 
+
+    In a simple setup like this, you might need to define it globally, e.g.:
+    <script>
+      // WARNING: Exposing API keys on the client-side is a SIGNIFICANT SECURITY RISK.
+      // This is shown for local development/demonstration with this project's constraints ONLY.
+      // In a production environment, API calls involving sensitive keys should be handled by a backend server.
+      // process = { env: { API_KEY: "YOUR_GEMINI_API_KEY" } }; 
+    </script>
+    Replace "YOUR_GEMINI_API_KEY" with your actual key if you choose this method for local testing.
+    Ensure this script runs BEFORE your main application script (`index.tsx`).
+  -->
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai",
+    "react-dom": "https://esm.sh/react-dom@^19.1.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <div id="chat-widget-portal"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
