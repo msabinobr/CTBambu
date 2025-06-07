@@ -2,7 +2,7 @@
   "name": "conexão-terra-bambu---bioconstrução",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://www.conexaoterrabambu.com.br",
+  "homepage": "https://msabinobr.github.io/CTBambu/",
   "type": "module",
   "scripts": {
     "dev": "vite",
